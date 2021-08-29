@@ -9,6 +9,6 @@ import { Component } from "@angular/core";
                     </div>
                 </div>
             `,
-    styles: []
+    styleUrls: ['./server.component.css']
 })
 export class ServerComponent { }
