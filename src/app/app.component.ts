@@ -13,4 +13,11 @@ export class AppComponent {
   myBtnClicked() {
     alert("Event Binding in action (click Event) ")
   }
+
+  evenBindedName: string;
+  EnteredValue(event: Event) {
+    this.evenBindedName = (<HTMLInputElement>event.target).value;
+    //telling typeScript that we know that event.target is of type HTMLInputElement by explicit casting ,
+    // else wouldnt be able to use value property (which exist on such types)
+  }
 }

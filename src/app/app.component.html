@@ -68,3 +68,13 @@
     </p>
   </div>
 </div>
+<div class="card text-white bg-primary m-4 col-sm-3 ">
+  <div class="card-header">EXAMPLE: passing value emitted by event to TS file</div>
+  <div class="card-body">
+    <p class="card-text">
+      <li>Enter Name :</li>
+      <input type="text" class="form-control" (input)="EnteredValue($event)">
+      <li>evenBindedName : {{evenBindedName}}</li>
+    </p>
+  </div>
+</div>
