@@ -20,4 +20,6 @@ export class AppComponent {
     //telling typeScript that we know that event.target is of type HTMLInputElement by explicit casting ,
     // else wouldnt be able to use value property (which exist on such types)
   }
+
+  twoWayBinded: string;
 }
