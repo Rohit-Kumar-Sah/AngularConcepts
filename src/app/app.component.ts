@@ -8,4 +8,5 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'AngularConcepts';
   disableThisButton: boolean = true;
+  myInterPolation: string = "Hi this Interpolation text is coming from TS File";
 }
