@@ -1,1 +1,15 @@
-<p>cockpit works!</p>
+<div class="m-3">
+    <h3>Add New Server or Blueprint</h3>
+
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Server Name </label>
+        <input #sname type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Server Content</label>
+        <input #sdes type="text" class="form-control" id="exampleInputPassword1">
+    </div>
+    <button class="btn btn-primary m-2" (click)="AddServer(sname,sdes)">Add Server</button>
+    <button class="btn btn-primary m-2" (click)="AddBlueprint(sname,sdes)">Add Blueprint</button>
+
+</div>
