@@ -58,23 +58,24 @@
   </div>
 
 </div>
-
-<div class="card text-white bg-primary m-4 col-sm-3 ">
-  <div class="card-header">From html to ts</div>
-  <div class="card-body">
-    <p class="card-text">
-      <li>Event Binding</li>
-      <button class="btn btn-danger" (click)="myBtnClicked()">Event Binded button</button>
-    </p>
+<div class="row m-3">
+  <div class="card text-white bg-primary m-4 col-sm-3 ">
+    <div class="card-header">From html to ts</div>
+    <div class="card-body">
+      <p class="card-text">
+        <li>Event Binding</li>
+        <button class="btn btn-danger" (click)="myBtnClicked()">Event Binded button</button>
+      </p>
+    </div>
   </div>
-</div>
-<div class="card text-white bg-primary m-4 col-sm-3 ">
-  <div class="card-header">EXAMPLE: passing value emitted by event to TS file</div>
-  <div class="card-body">
-    <p class="card-text">
-      <li>Enter Name :</li>
-      <input type="text" class="form-control" (input)="EnteredValue($event)">
-      <li>evenBindedName : {{evenBindedName}}</li>
-    </p>
+  <div class="card text-white bg-primary m-4 col-sm-3 ">
+    <div class="card-header">EXAMPLE: passing value emitted by event to TS file</div>
+    <div class="card-body">
+      <p class="card-text">
+        <li>Enter Name :</li>
+        <input type="text" class="form-control" (input)="EnteredValue($event)">
+        <li>evenBindedName : {{evenBindedName}}</li>
+      </p>
+    </div>
   </div>
 </div>
