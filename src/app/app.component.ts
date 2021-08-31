@@ -23,5 +23,14 @@ export class AppComponent {
 
   twoWayBinded: string;
 
-  cockpitArr: { name: string, des: string }[] = [{ name: "C1", des: "lorem ipsom" }, { name: "C2", des: "lorem ipsom" }];
+  cockpitArr: { name: string, des: string, color: string }[] = [];
+  myserversaved(data) {
+    this.cockpitArr.push(data);
+  }
+  myblueprintsaved(data) {
+    this.cockpitArr.push(data);
+  }
+
+
+
 }
