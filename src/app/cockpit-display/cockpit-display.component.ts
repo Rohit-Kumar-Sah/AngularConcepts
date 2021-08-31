@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-cockpit-display',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cockpit-display.component.css']
 })
 export class CockpitDisplayComponent implements OnInit {
-
+  @Input() cpit: { name: string, des: string };
   constructor() { }
 
   ngOnInit(): void {

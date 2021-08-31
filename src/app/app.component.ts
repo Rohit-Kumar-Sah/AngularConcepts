@@ -22,4 +22,6 @@ export class AppComponent {
   }
 
   twoWayBinded: string;
+
+  cockpitArr: { name: string, des: string }[] = [{ name: "C1", des: "lorem ipsom" }, { name: "C2", des: "lorem ipsom" }];
 }
