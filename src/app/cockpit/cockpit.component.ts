@@ -7,8 +7,8 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class CockpitComponent implements OnInit {
 
-  @Output() myserverform = new EventEmitter<{ name: string, des: string, color: string }>();
-  @Output() myblueprintform = new EventEmitter<{ name: string, des: string, color: string }>();
+  @Output('sf') myserverform = new EventEmitter<{ name: string, des: string, color: string }>();
+  @Output('bf') myblueprintform = new EventEmitter<{ name: string, des: string, color: string }>();
   constructor() { }
 
   ngOnInit(): void {
