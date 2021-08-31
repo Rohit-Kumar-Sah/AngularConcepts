@@ -14,10 +14,12 @@ export class CockpitComponent implements OnInit {
   ngOnInit(): void {
   }
   AddServer(sname, sdes) {
-    this.myserverform.emit({ name: sname.value, des: sdes.value, color: "red" })
+    this.myserverform.emit({ name: sname.value, des: sdes.value, color: "red" });
+    //fetched value of local reference
   }
   AddBlueprint(sname, sdes) {
-    this.myserverform.emit({ name: sname.value, des: sdes.value, color: "blue" })
+    this.myserverform.emit({ name: sname.value, des: sdes.value, color: "blue" });
+    //fetched value of local reference
 
   }
 }
