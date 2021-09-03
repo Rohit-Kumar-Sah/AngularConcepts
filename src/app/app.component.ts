@@ -31,6 +31,9 @@ export class AppComponent {
     this.cockpitArr.push(data);
   }
 
-
+  loadedFeature: string = 'recipe';
+  onNavigate(feature) {
+    this.loadedFeature = feature;
+  }
 
 }
