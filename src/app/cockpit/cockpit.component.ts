@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, ContentChild, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-cockpit',
@@ -13,6 +13,10 @@ export class CockpitComponent implements OnInit {
   @ViewChild('sname') sname1;
   @ViewChild('sdes') sdes1;
 
+  @ContentChild('locref') locref: ElementRef;
+  ngAfterViewInit() {
+    console.log(this.locref.nativeElement.textContent);
+  }
   constructor() { }
 
   ngOnInit(): void {
