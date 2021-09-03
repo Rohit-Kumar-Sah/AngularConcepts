@@ -13,6 +13,7 @@ import { ShoppingEditComponent } from './shopping-list/shopping-edit/shopping-ed
 import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-item.component';
 import { CockpitComponent } from './cockpit/cockpit.component';
 import { CockpitDisplayComponent } from './cockpit-display/cockpit-display.component';
+import { basicHighlightDirective } from './shared/basicHighter.directive';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { CockpitDisplayComponent } from './cockpit-display/cockpit-display.compo
     ShoppingEditComponent,
     RecipeItemComponent,
     CockpitComponent,
-    CockpitDisplayComponent
+    CockpitDisplayComponent,
+    basicHighlightDirective
   ],
   imports: [
     BrowserModule,
