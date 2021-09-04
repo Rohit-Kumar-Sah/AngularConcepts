@@ -18,7 +18,8 @@ export class basicHighlightDirective {
             //(element,property,value,flags such as !important) last parameter is optional
         }
     */
-    @Input() defaultColor = 'black'; //setting default 
+    @Input('appBasicHighlight') defaultColor = 'black'; //setting alias name same as name of directive's selector
+    //@Input() defaultColor = 'black'; //setting default 
     @Input() updateToColor = 'pink'; //setting default 
     @HostBinding('style.color') mycol = this.defaultColor;  //setting initial default color;
     @HostListener('mouseenter') inmouse(item: Event) {       //this will change color only when hovered(i.e. mouse enter)
