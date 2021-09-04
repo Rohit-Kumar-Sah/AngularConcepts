@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener, OnInit, Renderer2 } from "@angular/core";
+import { Directive, ElementRef, HostBinding, HostListener, OnInit, Renderer2 } from "@angular/core";
 
 @Directive({
     selector: '[appBasicHighlight]' //we wish to use this directive as attribute on element 
@@ -18,11 +18,14 @@ export class basicHighlightDirective {
             //(element,property,value,flags such as !important) last parameter is optional
         }
     */
+    @HostBinding('style.color') mycol = 'black';  //setting initial default color;
     @HostListener('mouseenter') inmouse(item: Event) {       //this will change color only when hovered(i.e. mouse enter)
-        this.renderer.setStyle(this.theElement.nativeElement, 'color', 'salmon');
+        // this.renderer.setStyle(this.theElement.nativeElement, 'color', 'salmon');
+        this.mycol = 'salmon';
     }
 
     @HostListener('mouseleave') outmouse(item: Event) {        //going back to normal color when mouse goes out
-        this.renderer.setStyle(this.theElement.nativeElement, 'color', 'black');
+        //this.renderer.setStyle(this.theElement.nativeElement, 'color', 'black');
+        this.mycol = 'black';
     }
 }
