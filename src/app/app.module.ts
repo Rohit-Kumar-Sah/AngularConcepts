@@ -14,6 +14,8 @@ import { RecipeItemComponent } from './recipes/recipe-list/recipe-item/recipe-it
 import { CockpitComponent } from './cockpit/cockpit.component';
 import { CockpitDisplayComponent } from './cockpit-display/cockpit-display.component';
 import { basicHighlightDirective } from './shared/basicHighter.directive';
+import { DropdownDirective } from './shared/dropdown.directive';
+import { ShoppingListService } from './shopping-list/shoppingList.service';
 
 @NgModule({
   declarations: [
@@ -28,13 +30,14 @@ import { basicHighlightDirective } from './shared/basicHighter.directive';
     RecipeItemComponent,
     CockpitComponent,
     CockpitDisplayComponent,
-    basicHighlightDirective
+    basicHighlightDirective,
+    DropdownDirective
   ],
   imports: [
     BrowserModule,
     FormsModule  //Must Have Requirement for 2 way data Binding 
   ],
-  providers: [],
+  providers: [ShoppingListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
