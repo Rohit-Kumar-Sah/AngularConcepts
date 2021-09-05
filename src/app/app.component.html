@@ -169,13 +169,16 @@
 
 <ul class="nav">
   <li class="nav-item">
-    <a class="nav-link active" aria-current="page" [routerLink]="'home'">Home</a>
+    <a class="nav-link " aria-current="page" [routerLink]="'home'" [routerLinkActive]="'activeLink'"
+      [routerLinkActiveOptions]="{exact:true}">Home</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" [routerLink]="'/companies'">Companies</a>
+    <a class="nav-link" [routerLink]="'/companies'" [routerLinkActive]="'activeLink'"
+      [routerLinkActiveOptions]="{exact:true}">Companies</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" [routerLink]="'/users'">Users</a>
+    <a class="nav-link" [routerLink]="'/users'" [routerLinkActive]="'activeLink'"
+      [routerLinkActiveOptions]="{exact:true}">Users</a>
   </li>
 </ul>
 
