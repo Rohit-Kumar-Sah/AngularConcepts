@@ -16,6 +16,13 @@ import { CockpitDisplayComponent } from './cockpit-display/cockpit-display.compo
 import { basicHighlightDirective } from './shared/basicHighter.directive';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { ShoppingListService } from './shopping-list/shoppingList.service';
+import { HomeComponent } from './home/home.component';
+import { UserComponent } from './user/user.component';
+import { CompaniesComponent } from './companies/companies.component';
+import { SingleUserComponent } from './user/single-user/single-user.component';
+import { SingleCompanyComponent } from './companies/single-company/single-company.component';
+import { EditCompaniesComponent } from './companies/edit-companies/edit-companies.component';
+import { ServersService } from './companies/servers.service';
 
 @NgModule({
   declarations: [
@@ -31,13 +38,19 @@ import { ShoppingListService } from './shopping-list/shoppingList.service';
     CockpitComponent,
     CockpitDisplayComponent,
     basicHighlightDirective,
-    DropdownDirective
+    DropdownDirective,
+    HomeComponent,
+    UserComponent,
+    CompaniesComponent,
+    SingleUserComponent,
+    SingleCompanyComponent,
+    EditCompaniesComponent
   ],
   imports: [
     BrowserModule,
     FormsModule  //Must Have Requirement for 2 way data Binding 
   ],
-  providers: [ShoppingListService],
+  providers: [ShoppingListService, ServersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
