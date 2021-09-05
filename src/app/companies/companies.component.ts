@@ -41,4 +41,8 @@ export class CompaniesComponent implements OnInit {
 
     this.router.navigate(['/companies'], { relativeTo: this.activatedRoute });
   }
+
+  company5() {
+    this.router.navigate(['5', 'edit'], { relativeTo: this.activatedRoute, queryParams: { allowEdit: '1' }, fragment: 'section1' })
+  }
 }
