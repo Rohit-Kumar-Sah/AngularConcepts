@@ -28,6 +28,7 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'companies', component: CompaniesComponent },
+  { path: 'users/:id/:name', component: UserComponent }, //setting dynamic routes
   { path: 'users', component: UserComponent }
 ]
 
