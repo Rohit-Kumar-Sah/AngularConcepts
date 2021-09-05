@@ -23,6 +23,13 @@ import { SingleUserComponent } from './user/single-user/single-user.component';
 import { SingleCompanyComponent } from './companies/single-company/single-company.component';
 import { EditCompaniesComponent } from './companies/edit-companies/edit-companies.component';
 import { ServersService } from './companies/servers.service';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+  { path: 'home', component: HomeComponent },
+  { path: 'companies', component: CompaniesComponent },
+  { path: 'users', component: UserComponent }
+]
 
 @NgModule({
   declarations: [
@@ -48,7 +55,8 @@ import { ServersService } from './companies/servers.service';
   ],
   imports: [
     BrowserModule,
-    FormsModule  //Must Have Requirement for 2 way data Binding 
+    FormsModule,  //Must Have Requirement for 2 way data Binding 
+    RouterModule.forRoot(routes)
   ],
   providers: [ShoppingListService, ServersService],
   bootstrap: [AppComponent]

@@ -167,8 +167,16 @@
 <h4>Routing</h4>
 <hr>
 
-<app-home></app-home>
-<h2 class="m-3"> Welcome to Companies Management : </h2>
-<app-user></app-user>
-<br>
-<app-companies></app-companies>
+<ul class="nav">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" [routerLink]="'home'">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="'/companies'">Companies</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" [routerLink]="'/users'">Users</a>
+  </li>
+</ul>
+
+<router-outlet></router-outlet>
