@@ -1,15 +1,15 @@
 <div class="row">
     <div class="col-xs-12 col-sm-4">
         <div class="list-group">
-            <a [routerLink]="['5','edit']" [queryParams]="{allowedit:'1'}" [fragment]="'section'"
+            <a [routerLink]="['/companies',server.id]" [queryParams]="{allowedit:'1'}" [fragment]="'section'"
                 class="list-group-item" *ngFor="let server of servers">
                 {{ server.name }}
             </a>
         </div>
     </div>
     <div class="col-xs-12 col-sm-4">
-        <button class="btn btn-primary" (click)="reload()">Goto Companies</button>
-        <button class="btn btn-primary" (click)="company5()">Goto Company 5</button>
+        <!-- <button class="btn btn-primary" (click)="reload()">Goto Companies</button>
+        <button class="btn btn-primary" (click)="company5()">Goto Company 5</button> -->
 
         <app-edit-companies></app-edit-companies>
         <hr>
