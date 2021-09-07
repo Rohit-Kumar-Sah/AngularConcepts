@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ServersService } from '../servers.service';
 
 @Component({
@@ -12,7 +12,7 @@ export class SingleCompanyComponent implements OnInit {
   server: { id: number, name: string, status: string };
   hereSubscription: any;
 
-  constructor(private serversService: ServersService, private activatedRoute: ActivatedRoute) { }
+  constructor(private serversService: ServersService, private activatedRoute: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     //this.server = this.serversService.getServer(1);
@@ -28,6 +28,10 @@ export class SingleCompanyComponent implements OnInit {
     this.hereSubscription = this.activatedRoute.params.subscribe((data: Params) => {
       this.server = this.serversService.getServer(+(data.id));
     })
+  }
+
+  editServer() {
+    this.router.navigate(["/companies", this.server.id, "edit"], { relativeTo: this.activatedRoute, queryParamsHandling: 'preserve' });
   }
 
 }

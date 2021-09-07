@@ -41,7 +41,7 @@ export class EditCompaniesComponent implements OnInit {
     //fetching route fragment //these works once only when the page url is loaded from some other page;
     //just incase url gets updated from WITHIN the page the page then this snapshot wouldnt be able to catch it and update the view
     
-    let allowEdit = this.activatedRoute.snapshot.fragment;
+     let allowEdit = this.activatedRoute.snapshot.fragment;
     
 
     //Reactively fetching route parameters
