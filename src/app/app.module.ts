@@ -24,6 +24,7 @@ import { SingleCompanyComponent } from './companies/single-company/single-compan
 import { EditCompaniesComponent } from './companies/edit-companies/edit-companies.component';
 import { ServersService } from './companies/servers.service';
 import { RouterModule, Routes } from '@angular/router';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -38,7 +39,9 @@ const routes: Routes = [
     path: 'users', component: UserComponent, children: [
       { path: ':id/:name', component: SingleUserComponent }, //setting dynamic routes
     ]
-  }
+  },
+  { path: 'pageNotFound', component: PageNotFoundComponent },
+  { path: '**', redirectTo: '/pageNotFound' }
 ]
 
 @NgModule({
@@ -61,7 +64,8 @@ const routes: Routes = [
     CompaniesComponent,
     SingleUserComponent,
     SingleCompanyComponent,
-    EditCompaniesComponent
+    EditCompaniesComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
