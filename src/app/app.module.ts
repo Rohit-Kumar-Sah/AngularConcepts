@@ -27,11 +27,18 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  { path: 'companies', component: CompaniesComponent },
-  { path: 'companies/:id', component: SingleCompanyComponent },
-  { path: 'companies/:id/edit', component: EditCompaniesComponent },
-  { path: 'users/:id/:name', component: UserComponent }, //setting dynamic routes
-  { path: 'users', component: UserComponent }
+  {
+    path: 'companies', component: CompaniesComponent, children: [
+      { path: ':id', component: SingleCompanyComponent },
+      { path: ':id/edit', component: EditCompaniesComponent },
+    ]
+  },
+
+  {
+    path: 'users', component: UserComponent, children: [
+      { path: ':id/:name', component: SingleUserComponent }, //setting dynamic routes
+    ]
+  }
 ]
 
 @NgModule({
