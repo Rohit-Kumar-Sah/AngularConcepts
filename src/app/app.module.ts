@@ -25,24 +25,9 @@ import { EditCompaniesComponent } from './companies/edit-companies/edit-companie
 import { ServersService } from './companies/servers.service';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { RoutingModule } from './routing/routing.module';
 
-const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  {
-    path: 'companies', component: CompaniesComponent, children: [
-      { path: ':id', component: SingleCompanyComponent },
-      { path: ':id/edit', component: EditCompaniesComponent },
-    ]
-  },
 
-  {
-    path: 'users', component: UserComponent, children: [
-      { path: ':id/:name', component: SingleUserComponent }, //setting dynamic routes
-    ]
-  },
-  { path: 'pageNotFound', component: PageNotFoundComponent },
-  { path: '**', redirectTo: '/pageNotFound' }
-]
 
 @NgModule({
   declarations: [
@@ -70,7 +55,7 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,  //Must Have Requirement for 2 way data Binding 
-    RouterModule.forRoot(routes)
+    RoutingModule
   ],
   providers: [ShoppingListService, ServersService],
   bootstrap: [AppComponent]
