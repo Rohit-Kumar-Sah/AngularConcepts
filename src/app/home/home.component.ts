@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthServiceService } from '../auth-service.service';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private authService: AuthServiceService) { }
 
   ngOnInit(): void {
   }
@@ -16,5 +17,12 @@ export class HomeComponent implements OnInit {
   loadCompanies() {
     //imagine we gotta do some complex work that then decides of navigation
     this.router.navigate(['companies']);
+  }
+  logout() {
+    this.authService.logout();
+  }
+  login() {
+    this.authService.login();
+
   }
 }
