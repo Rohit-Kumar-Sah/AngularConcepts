@@ -8,12 +8,13 @@ import { HomeComponent } from '../home/home.component';
 import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
 import { SingleUserComponent } from '../user/single-user/single-user.component';
 import { UserComponent } from '../user/user.component';
+import { AuthGuardService } from '../auth-guard.service';
 
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   {
-    path: 'companies', component: CompaniesComponent, children: [
+    path: 'companies', component: CompaniesComponent, canActivate: [AuthGuardService], children: [
       { path: ':id', component: SingleCompanyComponent },
       { path: ':id/edit', component: EditCompaniesComponent },
     ]
