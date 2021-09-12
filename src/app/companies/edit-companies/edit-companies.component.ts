@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { ourDeactivateInterface } from 'src/app/can-deactivate-guard.service';
 import { ServersService } from '../servers.service';
 
 @Component({
@@ -7,13 +9,22 @@ import { ServersService } from '../servers.service';
   templateUrl: './edit-companies.component.html',
   styleUrls: ['./edit-companies.component.css']
 })
-export class EditCompaniesComponent implements OnInit {
+export class EditCompaniesComponent implements OnInit, ourDeactivateInterface {
 
   server: { id: number, name: string, status: string };
   serverName = '';
   serverStatus = '';
 
-  constructor(private serversService: ServersService, private activatedRoute: ActivatedRoute) { }
+  constructor(private serversService: ServersService, private activatedRoute: ActivatedRoute, private router: Router) { }
+  ourDeactivateFunction(): boolean | Observable<boolean> | Promise<boolean> {
+    if ((this.serverName != this.server.name ||
+      this.serverStatus != this.server.status) && this.changesSaved == false) {
+      alert("Do u wanna discard the chamges");
+      return false;
+
+    }
+    else return true;
+  }
 
   ngOnInit() {
     this.server = this.serversService.getServer(1);
@@ -52,9 +63,11 @@ export class EditCompaniesComponent implements OnInit {
 
 
   }
-
+  changesSaved = false;
   onUpdateServer() {
     this.serversService.updateServer(this.server.id, { name: this.serverName, status: this.serverStatus });
+    this.changesSaved = true;
+    this.router.navigate(['../'], { relativeTo: this.activatedRoute });
   }
 
 
