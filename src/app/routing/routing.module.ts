@@ -26,7 +26,7 @@ const routes: Routes = [
       { path: ':id/:name', component: SingleUserComponent }, //setting dynamic routes
     ]
   },
-  { path: 'pageNotFound', component: PageNotFoundComponent },
+  { path: 'pageNotFound', component: PageNotFoundComponent, data: { mymsg: 'The page not found' } },
   { path: '**', redirectTo: '/pageNotFound' }
 ]
 
