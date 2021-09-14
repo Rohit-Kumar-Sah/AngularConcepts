@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { interval, Subscription } from 'rxjs';
+import { interval, Observable, Observer, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -11,9 +11,22 @@ export class AppComponent implements OnInit, OnDestroy {
   mysubscription: Subscription;
 
   ngOnInit(): void {
+    /*
     this.mysubscription = interval(1000).subscribe(val => {
       console.log(val);  // new value emitted every second & we log in console //1,2,3...
     })
+    */
+    const customOB = new Observable((observer: Observer<any>) => {
+      observer.next('rohit');
+      //observer.error('catched our error');
+      //observer.complete();
+    });
+
+    this.mysubscription = customOB.subscribe(data => {
+      console.log(data);
+    })
+
+
   }
   ngOnDestroy(): void {
     this.mysubscription.unsubscribe();
