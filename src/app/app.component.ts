@@ -1,11 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { interval, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit, OnDestroy {
+
+  mysubscription: Subscription;
+
+  ngOnInit(): void {
+    this.mysubscription = interval(1000).subscribe(val => {
+      console.log(val);  // new value emitted every second & we log in console //1,2,3...
+    })
+  }
+  ngOnDestroy(): void {
+    this.mysubscription.unsubscribe();
+  }
   title = 'AngularConcepts';
   disableThisButton: boolean = true;
   myInterPolation: string = "Hi this Interpolation text is coming from TS File";
