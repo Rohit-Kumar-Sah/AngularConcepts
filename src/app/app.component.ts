@@ -18,13 +18,14 @@ export class AppComponent implements OnInit, OnDestroy {
     */
     const customOB = new Observable((observer: Observer<any>) => {
       observer.next('rohit');
-      //observer.error('catched our error');
-      //observer.complete();
+      // observer.error(new Error('catched our error'));  //observable completes automatically wen encountered an error
+      observer.complete();
     });
 
-    this.mysubscription = customOB.subscribe(data => {
-      console.log(data);
-    })
+    this.mysubscription = customOB.subscribe(
+      data => { console.log(data); }
+      , error => { console.log(error); }
+      , () => { console.log("complete"); })
 
 
   }
