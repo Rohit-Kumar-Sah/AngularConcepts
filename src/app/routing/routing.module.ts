@@ -10,13 +10,14 @@ import { SingleUserComponent } from '../user/single-user/single-user.component';
 import { UserComponent } from '../user/user.component';
 import { AuthGuardService } from '../auth-guard.service';
 import { canDeactivateGuard } from '../can-deactivate-guard.service';
+import { ServerResolver } from '../companies/server-resolver.service';
 
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   {
     path: 'companies', component: CompaniesComponent, canActivateChild: [AuthGuardService], children: [
-      { path: ':id', component: SingleCompanyComponent },
+      { path: ':id', component: SingleCompanyComponent, resolve: { askedServer: ServerResolver } },
       { path: ':id/edit', component: EditCompaniesComponent, canDeactivate: [canDeactivateGuard] },
     ]
   },

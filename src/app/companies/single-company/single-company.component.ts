@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ActivatedRoute, Data, Params, Router } from '@angular/router';
 import { ServersService } from '../servers.service';
 
 @Component({
@@ -26,8 +26,15 @@ export class SingleCompanyComponent implements OnInit {
 
     //Reactively fetching route parameters
     this.hereSubscription = this.activatedRoute.params.subscribe((data: Params) => {
-      this.server = this.serversService.getServer(+(data.id));
+      // this.server = this.serversService.getServer(+(data.id)); //commented as we use resolver now
     })
+
+    this.server = this.activatedRoute.snapshot.data['askedServer'];
+    this.activatedRoute.data.subscribe((data: Data) => {
+      this.server = data['askedServer'];
+    }
+    );
+
   }
 
   editServer() {
