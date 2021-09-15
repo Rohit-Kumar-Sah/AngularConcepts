@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { interval, Observable, Observer, Subscription } from 'rxjs';
 
 @Component({
@@ -62,4 +63,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.loadedFeature = feature;
   }
 
+  mySubmit(myform: NgForm) {
+    console.log("form", myform, " value ", myform.value);
+  }
 }
