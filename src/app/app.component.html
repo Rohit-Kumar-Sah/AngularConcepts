@@ -192,7 +192,7 @@
 <form class="col-md-5 m-3" (ngSubmit)="mySubmit(myform)" #myform="ngForm">
   <div class="m-3">
     <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" name="myMail" ngModel email class="form-control" id="exampleInputEmail1"
+    <input type="email" name="myMail" [ngModel]="'abc@xyz.com'" email class="form-control" id="exampleInputEmail1"
       aria-describedby="emailHelp">
     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
   </div>
