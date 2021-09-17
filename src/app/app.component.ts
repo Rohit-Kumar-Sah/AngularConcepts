@@ -68,4 +68,36 @@ export class AppComponent implements OnInit, OnDestroy {
     console.log("form", myform, " value ", myform.value, this.myformval);
     console.log(" value ", this.myformval);
   }
+
+  //setting name field
+  setFormFeild() {
+    //making use of @ViewChild to accessing feild 
+
+    this.myformval.form.setValue(   //pass here object exact of signature of form
+      {
+        "mustFill": {
+          "myMail": "rohitKumarsah",
+          "myMail1": ""
+        },
+        "shallFill": {
+          "myMail2": "",
+          "myMail3": ""
+        },
+        "myPassword": ""
+      }
+    );
+    //here overhead is experienced as we have to send value of other feild even if not need, and over the top these feild gets overridden to above mentioned blank values for them
+
+  }
+
+  //setting name field
+  patchFormFeild() {
+    this.myformval.form.patchValue( //pass only that object key-value that you want to patch
+      {
+        "mustFill": {
+          "myMail": "rohit Kumar sah"
+        }
+      }
+    );
+  }
 }
