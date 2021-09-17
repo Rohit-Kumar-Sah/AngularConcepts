@@ -191,14 +191,30 @@
 
 <form class="col-md-5 m-3" (ngSubmit)="mySubmit(myform)" #myform="ngForm">
   <div class="m-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" name="myMail" [ngModel]="'abc@xyz.com'" email class="form-control" id="exampleInputEmail1"
-      aria-describedby="emailHelp">
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    <div ngModelGroup="mustFill">
+      <label for="exampleInputtext1" class="form-label">text </label>
+      <input type="text" name="myMail" [ngModel]="'rohitsah'" class="form-control" id="exampleInputtext1"
+        aria-describedby="textHelp">
+      <div class="form-text">We'll never share your email with anyone else.</div>
+      <label for="exampleInputEmail" class="form-label">Email address</label>
+      <input type="email" name="myMail1" [ngModel]="'abc@xyz.com'" email class="form-control" id="exampleInputEmail"
+        aria-describedby="emailHelp">
+    </div>
+    <div ngModelGroup="shallFill">
+      <div class="form-text">We'll never share your email with anyone else.</div>
+      <label for="exampleInputEmail0" class="form-label">Email address</label>
+      <input type="email" name="myMail2" [ngModel]="'def@xyz.com'" email class="form-control" id="exampleInputEmail10"
+        aria-describedby="emailHelp">
+      <div class="form-text">We'll never share your email with anyone else.</div>
+      <label for="exampleInputEmail11" class="form-label">Email address</label>
+      <input type="email" name="myMail3" [ngModel]="'ghi@xyz.com'" email class="form-control" id="exampleInputEmail11"
+        aria-describedby="emailHelp">
+      <div class="form-text">We'll never share your email with anyone else.</div>
+    </div>
   </div>
   <div class="m-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" name="myPassword" ngModel class="form-control" id="exampleInputPassword1">
+    <label for="exampleInputPassword10" class="form-label">Password</label>
+    <input type="password" name="myPassword" ngModel class="form-control" id="exampleInputPassword10">
   </div>
   <button type="submit" class="btn btn-primary " [disabled]="myform.invalid">Submit</button>
 </form>
@@ -210,13 +226,13 @@
 
 <form class="col-md-5 m-3">
   <div class="m-3">
-    <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <label for="exampleInputEmail14" class="form-label">Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail14" aria-describedby="emailHelp">
     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
   </div>
   <div class="m-3">
-    <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
+    <label for="exampleInputPassword12" class="form-label">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword12">
   </div>
   <button type="submit" class="btn btn-primary ">Submit</button>
 </form>
