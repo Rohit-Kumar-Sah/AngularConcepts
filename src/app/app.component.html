@@ -229,15 +229,16 @@
 <h4>Reactive Forms</h4>
 <hr>
 
-<form class="col-md-5 m-3">
+<form class="col-md-5 m-3" [formGroup]="myReactiveForm" (ngSubmit)="oursubmit()">
   <div class="m-3">
     <label for="exampleInputEmail14" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail14" aria-describedby="emailHelp">
+    <input [formControlName]="'myEmail'" type="email" class="form-control" id="exampleInputEmail14"
+      aria-describedby="emailHelp">
     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
   </div>
   <div class="m-3">
     <label for="exampleInputPassword12" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword12">
+    <input [formControlName]="'myPswd'" type="password" class="form-control" id="exampleInputPassword12">
   </div>
   <button type="submit" class="btn btn-primary ">Submit</button>
 </form>

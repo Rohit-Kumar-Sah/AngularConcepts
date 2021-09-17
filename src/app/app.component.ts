@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { FormControl, FormGroup, NgForm } from '@angular/forms';
 import { interval, Observable, Observer, Subscription } from 'rxjs';
 
 @Component({
@@ -10,8 +10,16 @@ import { interval, Observable, Observer, Subscription } from 'rxjs';
 export class AppComponent implements OnInit, OnDestroy {
 
   mysubscription: Subscription;
+  myReactiveForm: FormGroup;
 
   ngOnInit(): void {
+
+    this.myReactiveForm = new FormGroup({
+      myEmail: new FormControl(null),
+      myPswd: new FormControl(null)
+    })
+
+
     /*
     this.mysubscription = interval(1000).subscribe(val => {
       console.log(val);  // new value emitted every second & we log in console //1,2,3...
@@ -29,6 +37,10 @@ export class AppComponent implements OnInit, OnDestroy {
       , () => { console.log("complete"); })
 
 
+  }
+
+  oursubmit() {
+    console.log("reactive form", this.myReactiveForm);
   }
   ngOnDestroy(): void {
     this.mysubscription.unsubscribe();
