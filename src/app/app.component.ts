@@ -67,6 +67,7 @@ export class AppComponent implements OnInit, OnDestroy {
   mySubmit(myform: NgForm) {
     console.log("form", myform, " value ", myform.value, this.myformval);
     console.log(" value ", this.myformval);
+    this.myformval.form.reset();
   }
 
   //setting name field

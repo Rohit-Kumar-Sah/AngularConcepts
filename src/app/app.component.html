@@ -192,10 +192,10 @@
 <form class="col-md-5 m-3" (ngSubmit)="mySubmit(myform)" #myform="ngForm">
   <div class="m-3">
     <div ngModelGroup="mustFill">
-      <button class="btn btn-warning m-2" (click)="setFormFeild()">Suggest name ommiting(overriding) other field
-        values</button>
-      <button class="btn btn-info m-2" (click)="patchFormFeild()">Suggest name Without ommiting(overriding) other field
-        values</button>
+      <button type="button" class="btn btn-warning m-2" (click)="setFormFeild()">Suggest name ommiting(overriding) other
+        field values</button>
+      <button type="button" class="btn btn-info m-2" (click)="patchFormFeild()">Suggest name Without
+        ommiting(overriding) other field values</button>
       <br>
       <label for="exampleInputtext1" class="form-label">text </label>
       <input type="text" name="myMail" [ngModel]="'rohitsah'" class="form-control" id="exampleInputtext1"
