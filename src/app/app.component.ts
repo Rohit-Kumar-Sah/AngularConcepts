@@ -24,6 +24,8 @@ export class AppComponent implements OnInit, OnDestroy {
       hobbies: new FormArray([])
     })
 
+    this.myReactiveForm.valueChanges.subscribe((value) => { console.log("Track Value update at every stroke :", value) })
+    this.myReactiveForm.statusChanges.subscribe((value) => { console.log("Track Form Status update at every stroke :", value) })
 
     /*
     this.mysubscription = interval(1000).subscribe(val => {
