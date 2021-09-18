@@ -242,5 +242,10 @@
     <label for="exampleInputPassword12" class="form-label">Password</label>
     <input [formControlName]="'myPswd'" type="password" class="form-control" id="exampleInputPassword12">
   </div>
+  <div [formGroupName]="'infos'">
+    <input [formControlName]="'naam'" type="text" class="form-control" aria-describedby="emailHelp">
+    <input [formControlName]="'des'" type="text" class="form-control" aria-describedby="emailHelp">
+  </div>
+
   <button type="submit" class="btn btn-primary ">Submit</button>
 </form>

@@ -15,6 +15,10 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
 
     this.myReactiveForm = new FormGroup({
+      infos: new FormGroup({
+        naam: new FormControl(null),
+        des: new FormControl(null)
+      }),
       myEmail: new FormControl(null, [Validators.required, Validators.email]),
       myPswd: new FormControl(null, [Validators.required])
     })
