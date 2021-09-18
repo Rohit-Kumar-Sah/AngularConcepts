@@ -234,7 +234,9 @@
     <label for="exampleInputEmail14" class="form-label">Email address</label>
     <input [formControlName]="'myEmail'" type="email" class="form-control" id="exampleInputEmail14"
       aria-describedby="emailHelp">
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    <div id="emailHelp" class="form-text" *ngIf="myReactiveForm.touched && myReactiveForm.get('myEmail').invalid">enter
+      valid
+      mail</div>
   </div>
   <div class="m-3">
     <label for="exampleInputPassword12" class="form-label">Password</label>
