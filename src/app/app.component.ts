@@ -16,7 +16,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
     this.myReactiveForm = new FormGroup({
       infos: new FormGroup({
-        naam: new FormControl(null, [Validators.required]),
+        naam: new FormControl(null, [Validators.required, this.doomedNameValidator.bind(this)]),
         des: new FormControl(null, [Validators.required])
       }),
       myEmail: new FormControl(null, [Validators.required, Validators.email]),
@@ -125,5 +125,14 @@ export class AppComponent implements OnInit, OnDestroy {
   }
   getControls() {
     return (<FormArray>this.myReactiveForm.get('hobbies')).controls;
+  }
+  doomedName = ["harman", "burman"];
+  doomedNameValidator(control: FormControl): { [s: string]: boolean } {
+    if (this.doomedName.includes(control.value)) { //when doomed name is entered
+      return { wrongName: true };
+    }
+    else {
+      return null;
+    }
   }
 }
