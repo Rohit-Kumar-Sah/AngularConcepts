@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup, NgForm } from '@angular/forms';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { interval, Observable, Observer, Subscription } from 'rxjs';
 
 @Component({
@@ -15,8 +15,8 @@ export class AppComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
 
     this.myReactiveForm = new FormGroup({
-      myEmail: new FormControl(null),
-      myPswd: new FormControl(null)
+      myEmail: new FormControl(null, [Validators.required, Validators.email]),
+      myPswd: new FormControl(null, [Validators.required])
     })
 
 
