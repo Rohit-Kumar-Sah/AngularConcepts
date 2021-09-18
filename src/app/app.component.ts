@@ -16,7 +16,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
     this.myReactiveForm = new FormGroup({
       infos: new FormGroup({
-        naam: new FormControl(null, [Validators.required, this.doomedNameValidator.bind(this)]),
+        naam: new FormControl(null, [Validators.required, this.doomedNameValidator.bind(this)], this.doomedNameValidatorAsync.bind(this)),
         des: new FormControl(null, [Validators.required])
       }),
       myEmail: new FormControl(null, [Validators.required, Validators.email]),
@@ -134,5 +134,20 @@ export class AppComponent implements OnInit, OnDestroy {
     else {
       return null;
     }
+  }
+  doomedNameAsync = ["Doremon", "Shinchan"];
+  doomedNameValidatorAsync(control: FormControl): Promise<any> | Observable<any> {
+    const promise = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (this.doomedNameAsync.includes(control.value)) { //when doomed name is entered
+          resolve({ wrongNameAsync: true });
+        }
+        else {
+          resolve(null);
+        }
+      }, 1500)
+    })
+
+    return promise;
   }
 }
