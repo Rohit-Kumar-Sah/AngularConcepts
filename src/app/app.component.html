@@ -244,6 +244,9 @@
   </div>
   <div [formGroupName]="'infos'">
     <input [formControlName]="'naam'" type="text" class="form-control" aria-describedby="emailHelp">
+    <div id="emailHelpx" class="form-text" *ngIf="myReactiveForm.touched && myReactiveForm.get('infos.naam').invalid">
+      enter
+      valid name</div>
     <input [formControlName]="'des'" type="text" class="form-control" aria-describedby="emailHelp">
   </div>
 
