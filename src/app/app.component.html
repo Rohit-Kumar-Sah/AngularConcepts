@@ -243,11 +243,17 @@
     <input [formControlName]="'myPswd'" type="password" class="form-control" id="exampleInputPassword12">
   </div>
   <div [formGroupName]="'infos'">
-    <input [formControlName]="'naam'" type="text" class="form-control" aria-describedby="emailHelp">
+    <input [formControlName]="'naam'" type="text" class="form-control" aria-describedby="emailHelp"><br>
     <div id="emailHelpx" class="form-text" *ngIf="myReactiveForm.touched && myReactiveForm.get('infos.naam').invalid">
       enter
       valid name</div>
     <input [formControlName]="'des'" type="text" class="form-control" aria-describedby="emailHelp">
+  </div>
+  <div class="m-3" [formArrayName]="'hobbies'">
+    <h2>Your Hobbies</h2>
+    <input *ngFor="let item of getControls();let i = index;" [formControlName]="i" type="text" class="form-control"
+      aria-describedby="emailHelp">
+    <button class="btn btn-info" type="button" (click)="AddHobby()">Add Hobbies here</button>
   </div>
 
   <button type="submit" class="btn btn-primary ">Submit</button>

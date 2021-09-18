@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { interval, Observable, Observer, Subscription } from 'rxjs';
 
 @Component({
@@ -20,7 +20,8 @@ export class AppComponent implements OnInit, OnDestroy {
         des: new FormControl(null, [Validators.required])
       }),
       myEmail: new FormControl(null, [Validators.required, Validators.email]),
-      myPswd: new FormControl(null, [Validators.required])
+      myPswd: new FormControl(null, [Validators.required]),
+      hobbies: new FormArray([])
     })
 
 
@@ -116,5 +117,13 @@ export class AppComponent implements OnInit, OnDestroy {
         }
       }
     );
+  }
+
+  AddHobby() {
+    let ourAddedControl = new FormControl(null, [Validators.required]);
+    (<FormArray>this.myReactiveForm.get('hobbies')).push(ourAddedControl);
+  }
+  getControls() {
+    return (<FormArray>this.myReactiveForm.get('hobbies')).controls;
   }
 }
