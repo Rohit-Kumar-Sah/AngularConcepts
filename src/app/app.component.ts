@@ -152,4 +152,11 @@ export class AppComponent implements OnInit, OnDestroy {
 
     return promise;
   }
+
+  DataForPipe = {
+    firstName: "Rohit",
+    title: "Sah",
+    dob: "07-10-1997",
+
+  }
 }
