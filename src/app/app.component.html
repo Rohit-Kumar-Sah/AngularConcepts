@@ -265,8 +265,8 @@
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">
-        {{DataForPipe.firstName | uppercase}}
-        {{DataForPipe.title}}
+        {{DataForPipe.firstName | uppercase | shortener}}
+        {{DataForPipe.title | shortener:2}}
       </h5>
       <p class="card-text">
         {{DataForPipe.dob | date:'fullDate' | uppercase}}

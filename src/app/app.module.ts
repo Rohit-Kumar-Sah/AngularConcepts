@@ -26,6 +26,7 @@ import { ServersService } from './companies/servers.service';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RoutingModule } from './routing/routing.module';
+import { ShortenerPipe } from './shortener.pipe';
 
 
 
@@ -50,7 +51,8 @@ import { RoutingModule } from './routing/routing.module';
     SingleUserComponent,
     SingleCompanyComponent,
     EditCompaniesComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    ShortenerPipe
   ],
   imports: [
     BrowserModule,
