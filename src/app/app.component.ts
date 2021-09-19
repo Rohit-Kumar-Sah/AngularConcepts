@@ -159,4 +159,9 @@ export class AppComponent implements OnInit, OnDestroy {
     dob: "07-10-1997",
 
   }
+  mock = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("PIPE");
+    }, 2000)
+  })
 }
