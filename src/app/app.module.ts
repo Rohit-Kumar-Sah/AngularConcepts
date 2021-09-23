@@ -27,6 +27,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RoutingModule } from './routing/routing.module';
 import { ShortenerPipe } from './shortener.pipe';
+import { HelperDirective } from './shared/helperdirective.directive';
 
 
 
@@ -52,7 +53,8 @@ import { ShortenerPipe } from './shortener.pipe';
     SingleCompanyComponent,
     EditCompaniesComponent,
     PageNotFoundComponent,
-    ShortenerPipe
+    ShortenerPipe,
+    HelperDirective
   ],
   imports: [
     BrowserModule,

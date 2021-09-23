@@ -1,6 +1,7 @@
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, ComponentFactoryResolver, Injector, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { FormArray, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { interval, Observable, Observer, Subscription } from 'rxjs';
+import { HelperDirective } from './shared/helperdirective.directive';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,7 @@ import { interval, Observable, Observer, Subscription } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit, OnDestroy {
-
+  constructor(private componentFactoryResolver: ComponentFactoryResolver, private injector: Injector) { }
   mysubscription: Subscription;
   myReactiveForm: FormGroup;
 
@@ -164,4 +165,17 @@ export class AppComponent implements OnInit, OnDestroy {
       resolve("PIPE");
     }, 2000)
   })
+
+
+  @ViewChild(HelperDirective) domPlaceholder: HelperDirective;
+  bringDynamic() {
+    import('./alert-component/alert-component.component').then(({ AlertComponentComponent }) => {
+      const ourComponentFactory = this.componentFactoryResolver.resolveComponentFactory(AlertComponentComponent);
+
+      let ourHoster = this.domPlaceholder.viewContainerRef;
+      ourHoster.clear();
+      const ourInstance = ourHoster.createComponent(ourComponentFactory, null, this.injector);
+      ourInstance.instance.msg = 'dynamic';
+    })
+  }
 }
