@@ -11,12 +11,13 @@ import { UserComponent } from '../user/user.component';
 import { AuthGuardService } from '../auth-guard.service';
 import { canDeactivateGuard } from '../can-deactivate-guard.service';
 import { ServerResolver } from '../companies/server-resolver.service';
+import { CompanyModule } from '../companies/companies.module';
 
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
 
-
+  { path: 'companies', loadChildren: () => import('../companies/companies.module').then(m => m.CompanyModule) },
   {
     path: 'users', component: UserComponent, children: [
       { path: ':id/:name', component: SingleUserComponent }, //setting dynamic routes

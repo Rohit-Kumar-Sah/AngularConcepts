@@ -28,7 +28,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { RoutingModule } from './routing/routing.module';
 import { ShortenerPipe } from './shortener.pipe';
 import { HelperDirective } from './shared/helperdirective.directive';
-import { CompanyModule } from './companies/companies.module';
+//import { CompanyModule } from './companies/companies.module';// remove its import too for lazily loading
 
 
 
@@ -60,7 +60,8 @@ import { CompanyModule } from './companies/companies.module';
   imports: [
     BrowserModule,
     FormsModule,  //Must Have Requirement for 2 way data Binding ,
-    CompanyModule, //import all feature routing configuration before root app routing configurations file
+    //commented module below as we now are lazily loading it , so shouldnt import in ad=pp module
+    //CompanyModule, //import all feature routing configuration before root app routing configurations file
     RoutingModule,
     ReactiveFormsModule
 

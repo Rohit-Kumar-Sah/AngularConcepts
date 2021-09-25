@@ -10,7 +10,7 @@ import { SingleCompanyComponent } from "./single-company/single-company.componen
 
 const routes: Routes = [
     {
-        path: 'companies', component: CompaniesComponent, canActivateChild: [AuthGuardService], children: [
+        path: '', component: CompaniesComponent, canActivateChild: [AuthGuardService], children: [
             { path: ':id', component: SingleCompanyComponent, resolve: { askedServer: ServerResolver } },
             { path: ':id/edit', component: EditCompaniesComponent, canDeactivate: [canDeactivateGuard] },
         ]
