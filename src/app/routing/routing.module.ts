@@ -15,12 +15,7 @@ import { ServerResolver } from '../companies/server-resolver.service';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
-  {
-    path: 'companies', component: CompaniesComponent, canActivateChild: [AuthGuardService], children: [
-      { path: ':id', component: SingleCompanyComponent, resolve: { askedServer: ServerResolver } },
-      { path: ':id/edit', component: EditCompaniesComponent, canDeactivate: [canDeactivateGuard] },
-    ]
-  },
+
 
   {
     path: 'users', component: UserComponent, children: [

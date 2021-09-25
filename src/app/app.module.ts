@@ -28,6 +28,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { RoutingModule } from './routing/routing.module';
 import { ShortenerPipe } from './shortener.pipe';
 import { HelperDirective } from './shared/helperdirective.directive';
+import { CompanyModule } from './companies/companies.module';
 
 
 
@@ -58,9 +59,11 @@ import { HelperDirective } from './shared/helperdirective.directive';
   ],
   imports: [
     BrowserModule,
-    FormsModule,  //Must Have Requirement for 2 way data Binding 
+    FormsModule,  //Must Have Requirement for 2 way data Binding ,
+    CompanyModule, //import all feature routing configuration before root app routing configurations file
     RoutingModule,
     ReactiveFormsModule
+
   ],
   providers: [ShoppingListService, ServersService],
   bootstrap: [AppComponent]
