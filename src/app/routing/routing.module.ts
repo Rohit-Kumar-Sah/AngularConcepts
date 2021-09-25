@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { CompaniesComponent } from '../companies/companies.component';
 import { EditCompaniesComponent } from '../companies/edit-companies/edit-companies.component';
 import { SingleCompanyComponent } from '../companies/single-company/single-company.component';
@@ -31,7 +31,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule, RouterModule.forRoot(routes, { useHash: true })
+    CommonModule, RouterModule.forRoot(routes, { useHash: true, preloadingStrategy: PreloadAllModules })
   ],
   exports: [RouterModule]
 
