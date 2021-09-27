@@ -31,7 +31,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule, RouterModule.forRoot(routes, { useHash: true, preloadingStrategy: PreloadAllModules })
+    CommonModule, RouterModule.forRoot(routes, { useHash: true, preloadingStrategy: PreloadAllModules, initialNavigation: 'enabled' })
   ],
   exports: [RouterModule]
 

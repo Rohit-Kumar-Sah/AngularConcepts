@@ -58,7 +58,7 @@ import { HelperDirective } from './shared/helperdirective.directive';
     HelperDirective
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     FormsModule,  //Must Have Requirement for 2 way data Binding ,
     //commented module below as we now are lazily loading it , so shouldnt import in ad=pp module
     //CompanyModule, //import all feature routing configuration before root app routing configurations file
