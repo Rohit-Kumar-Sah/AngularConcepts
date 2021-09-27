@@ -1,4 +1,5 @@
-import { Component, ComponentFactoryResolver, Injector, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { isPlatformBrowser, isPlatformServer } from '@angular/common';
+import { Component, ComponentFactoryResolver, Inject, Injector, OnDestroy, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
 import { FormArray, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { interval, Observable, Observer, Subscription } from 'rxjs';
 import { HelperDirective } from './shared/helperdirective.directive';
@@ -9,12 +10,14 @@ import { HelperDirective } from './shared/helperdirective.directive';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit, OnDestroy {
-  constructor(private componentFactoryResolver: ComponentFactoryResolver, private injector: Injector) { }
+  constructor(@Inject(PLATFORM_ID) private platformID, private componentFactoryResolver: ComponentFactoryResolver, private injector: Injector) { }
   mysubscription: Subscription;
   myReactiveForm: FormGroup;
 
   ngOnInit(): void {
-
+    if (isPlatformBrowser(this.platformID)) { console.log("here in browser mode") }
+    if (isPlatformServer(this.platformID)) { console.log("here in server mode") }
+    console.log("here in both mode");
     this.myReactiveForm = new FormGroup({
       infos: new FormGroup({
         naam: new FormControl(null, [Validators.required, this.doomedNameValidator.bind(this)], this.doomedNameValidatorAsync.bind(this)),
