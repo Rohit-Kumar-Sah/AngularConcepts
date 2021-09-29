@@ -28,6 +28,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { RoutingModule } from './routing/routing.module';
 import { ShortenerPipe } from './shortener.pipe';
 import { HelperDirective } from './shared/helperdirective.directive';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 //import { CompanyModule } from './companies/companies.module';// remove its import too for lazily loading
 
 
@@ -63,7 +65,13 @@ import { HelperDirective } from './shared/helperdirective.directive';
     //commented module below as we now are lazily loading it , so shouldnt import in ad=pp module
     //CompanyModule, //import all feature routing configuration before root app routing configurations file
     RoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
 
   ],
   providers: [ShoppingListService, ServersService],
