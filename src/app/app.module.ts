@@ -31,6 +31,7 @@ import { HelperDirective } from './shared/helperdirective.directive';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { AngAniComponent } from './ang-ani/ang-ani.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //import { CompanyModule } from './companies/companies.module';// remove its import too for lazily loading
 
 
@@ -62,6 +63,7 @@ import { AngAniComponent } from './ang-ani/ang-ani.component';
     HelperDirective
   ],
   imports: [
+    BrowserAnimationsModule,
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     FormsModule,  //Must Have Requirement for 2 way data Binding ,
     //commented module below as we now are lazily loading it , so shouldnt import in ad=pp module
