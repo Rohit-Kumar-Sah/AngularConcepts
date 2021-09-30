@@ -30,12 +30,14 @@ import { ShortenerPipe } from './shortener.pipe';
 import { HelperDirective } from './shared/helperdirective.directive';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { AngAniComponent } from './ang-ani/ang-ani.component';
 //import { CompanyModule } from './companies/companies.module';// remove its import too for lazily loading
 
 
 
 @NgModule({
   declarations: [
+    AngAniComponent,
     AppComponent,
     ServerComponent,
     HeaderComponent,
